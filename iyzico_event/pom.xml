@@ -4,61 +4,12 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.iyzico.event</groupId>
-	<artifactId>iyzico_event_management</artifactId>
+	<artifactId>iyzico_event</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>pom</packaging>
+	<packaging>jar</packaging>
 
-	<name>iyzico_event_management</name>
+	<name>iyzico_event</name>
 	<description>Iyzico event management application</description>
-
-	<modules>
-		<module>iyzico_event</module>
-	</modules>
-
-	<developers>
-		<developer>
-			<id>mbas</id>
-			<name>Mahmut Bas</name>
-			<email>javaon@yahoo.com</email>
-		</developer>
-	</developers>
-
-	<repositories>
-		<repository>
-			<id>prime-repo</id>
-			<name>PrimeFaces Maven Repository</name>
-			<url>http://repository.primefaces.org</url>
-			<layout>default</layout>
-		</repository>
-		<repository>
-			<id>jboss-repo</id>
-			<name>jboss repo</name>
-			<url>http://repository.jboss.org/nexus/content/groups/public-jboss/</url>
-			<layout>default</layout>
-		</repository>
-		<repository>
-			<id>maven-repo</id>
-			<name>maven repo</name>
-			<url>http://repo1.maven.org/maven2</url>
-			<layout>default</layout>
-		</repository>
-		<repository>
-			<id>java.net-Public</id>
-			<name>Maven Java Net Snapshots and Releases</name>
-			<url>https://maven.java.net/content/groups/public/</url>
-			<layout>default</layout>
-		</repository>
-		<repository>
-			<id>jboss-public-repository</id>
-			<name>JBoss Public Maven Repository Group</name>
-			<url>http://repository.jboss.org/nexus/content/groups/public/</url>
-		</repository>
-		<repository>
-			<id>maven-public-repository</id>
-			<name>Maven Public Maven Repository Group</name>
-			<url>http://repo1.maven.org/maven2/</url>
-		</repository>
-	</repositories>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -116,11 +67,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>com.google.guava</groupId>
-			<artifactId>guava</artifactId>
-			<version>${google-guava.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>commons-collections</groupId>

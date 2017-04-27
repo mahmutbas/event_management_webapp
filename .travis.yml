@@ -1,0 +1,20 @@
+language: java
+
+branches:
+  only:
+  - master
+  - develop
+
+notifications:
+  email: false
+
+jdk:
+  - oraclejdk8
+
+script:
+  - mvn test
+after_success:
+  - mvn jacoco:report coveralls:report
+
+install:
+  - mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V

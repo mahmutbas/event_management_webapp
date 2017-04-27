@@ -1,7 +1,7 @@
 package com.iyzico.event.util;
 
-import com.iyzico.event.model.AbstractEntity;
 
+import com.iyzico.event.model.AbstractEntity;
 import org.apache.commons.lang.StringUtils;
 import org.hibernate.HibernateException;
 import org.hibernate.engine.spi.SessionImplementor;
@@ -17,11 +17,9 @@ public class UpperCaseUUIDGenerator extends UUIDGenerator
     @Override
     public Serializable generate(SessionImplementor session, Object object) throws HibernateException
     {
-        if (object instanceof AbstractEntity)
-        {
-            AbstractEntity abstractEntity = (AbstractEntity) object;
-            if (abstractEntity.getId() != null)
-            {
+        if (object instanceof AbstractEntity) {
+            AbstractEntity abstractEntity = (AbstractEntity)object;
+            if (abstractEntity.getId() != null) {
                 return abstractEntity.getId();
             }
         }
@@ -29,3 +27,4 @@ public class UpperCaseUUIDGenerator extends UUIDGenerator
         return StringUtils.upperCase((String) generated);
     }
 }
+

@@ -51,5 +51,6 @@ public class EventTest
         assertEquals("JavaDay", event.getEventName());
         assertNotNull(event.getInternalId());
         assertEquals(event.getInternalId().length(), 36);
+        assertEquals(event.getDeleted(), AbstractEntity.DEFAULT_DELETED_VALUE);
     }
 }

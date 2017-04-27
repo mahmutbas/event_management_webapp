@@ -2,14 +2,15 @@ package com.iyzico.event.model.event;
 
 import com.iyzico.event.model.AbstractEntity;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.Where;
 import org.springframework.util.Assert;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+import java.util.Date;
 
 /**
  * Created by TCMBAS on 26/04/2017.
@@ -18,12 +19,17 @@ import javax.validation.constraints.NotNull;
 @Data
 @Table(name = "T_EVENT")
 @DynamicUpdate
-@EqualsAndHashCode(callSuper = true, of = "")
 @Where(clause = "DELETED = '0'")
 public class Event extends AbstractEntity
 {
-    @NotNull
     private String eventName;
+    @Temporal(TemporalType.DATE)
+    private Date eventDate;
+    private String addressText;
+    private Double addressLatitude;
+    private Double addressLongitude;
+    private Integer days;
+    private Integer trackCount;
 
     public Event()
     {

@@ -12,18 +12,18 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.persistence.Transient;
+import java.io.Serializable;
 import java.util.Date;
 import java.util.UUID;
 
 /**
  * Created by TCMBAS on 25/04/2017.
  */
-
 @Data
 @MappedSuperclass
 @ToString(of = {"id"})
 @EqualsAndHashCode(of = {"internalId", "id"})
-public abstract class AbstractEntity
+public abstract class AbstractEntity implements Serializable
 {
     public static String DEFAULT_DELETED_VALUE = "0";
 
@@ -40,7 +40,7 @@ public abstract class AbstractEntity
      */
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "com.iyzico.event.util.UpperCaseUUIDGenerator")
+    @GenericGenerator(name = "uuid", strategy = "com.iyzico.event.util.UpperCaseUUIDGenerator")/*    @GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")*/
     @Access(AccessType.PROPERTY)
     private String id;
 
@@ -56,10 +56,4 @@ public abstract class AbstractEntity
      * defines record deleted or not if value is zero then record is not deleted all other values denotes deleted record.
      */
     private String deleted = DEFAULT_DELETED_VALUE;
-
-    @Transient
-    public boolean isRecordDeleted()
-    {
-        return !DEFAULT_DELETED_VALUE.equals(getDeleted());
-    }
 }

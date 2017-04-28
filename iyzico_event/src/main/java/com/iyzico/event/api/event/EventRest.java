@@ -13,6 +13,7 @@ import java.util.List;
 @RequestMapping(path = "/api")
 public interface EventRest
 {
+    //http://localhost:8080/api/event/all
     @RequestMapping(path = "/event/all", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public List<Event> findAllEvents();
 }

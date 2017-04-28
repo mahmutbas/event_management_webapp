@@ -12,10 +12,9 @@
     <description>Iyzico event management application</description>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.5.3.RELEASE</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <groupId>com.iyzico.event</groupId>
+        <artifactId>iyzico_event_management</artifactId>
+        <version>0.0.1-SNAPSHOT</version>
     </parent>
 
     <properties>
@@ -24,8 +23,6 @@
         <java.version>1.8</java.version>
         <commons-lang-version>2.4</commons-lang-version>
         <google-guava.version>21.0</google-guava.version>
-        <jacoco.version>0.7.8</jacoco.version>
-        <jacoco.agent.argLine />
     </properties>
 
     <dependencies>
@@ -127,17 +124,15 @@
                     </execution>
                 </executions>
             </plugin>
-
             <plugin>
                 <groupId>org.eluder.coveralls</groupId>
                 <artifactId>coveralls-maven-plugin</artifactId>
                 <version>4.3.0</version>
                 <configuration>
-                    <repoToken></repoToken>
+                    <repoToken>NAu4QEDEd8p14xlXNC4k8cvSVzx5heK71</repoToken>
                 </configuration>
             </plugin>
         </plugins>
     </build>
-
 
 </project>

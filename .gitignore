@@ -22,7 +22,3 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
-
-###
-*.cmd
-mvnw

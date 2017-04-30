@@ -1,16 +1,18 @@
 package com.iyzico.event.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.Access;
 import javax.persistence.AccessType;
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 import java.io.Serializable;
 import java.util.Date;
@@ -21,13 +23,12 @@ import java.util.UUID;
  */
 @Data
 @MappedSuperclass
-@ToString(of = {"id"})
-@EqualsAndHashCode(of = {"internalId", "id"})
 public abstract class AbstractEntity implements Serializable
 {
     public static String DEFAULT_DELETED_VALUE = "0";
 
     @Transient
+    @JsonIgnore
     private String internalId;
 
     public AbstractEntity()
@@ -40,16 +41,12 @@ public abstract class AbstractEntity implements Serializable
      */
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "com.iyzico.event.util.UpperCaseUUIDGenerator")/*    @GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")*/
+    @GenericGenerator(name = "uuid", strategy = "com.iyzico.event.util.UpperCaseUUIDGenerator")
     @Access(AccessType.PROPERTY)
     private String id;
 
-    public void setId(String id)
-    {
-        this.id = id;
-        this.internalId = id;
-    }
-
+    @Column(columnDefinition = "DATETIME")
+    @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
 
     /**

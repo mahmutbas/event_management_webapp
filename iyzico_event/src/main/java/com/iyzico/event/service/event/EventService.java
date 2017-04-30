@@ -11,4 +11,6 @@ import java.util.List;
 public interface EventService
 {
     public List<Event> findAllEvents();
+
+    public Event findByEventName(String eventName);
 }

@@ -17,7 +17,8 @@ public class CustomInterceptor extends EmptyInterceptor
             Serializable id,
             Object[] state,
             String[] propertyNames,
-            Type[] types) {
+            Type[] types)
+    {
         setPropertyState(state, propertyNames, "createTime", new Date());
         return true;
     }

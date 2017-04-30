@@ -35,10 +35,28 @@ public class Event extends AbstractEntity
     {
     }
 
+    public void setAddressLatitude(Double addressLatitude)
+    {
+        if (addressLatitude != null)
+        {
+            Assert.isTrue(addressLatitude <= 90.0 && addressLatitude >= -90.0, "");
+        }
+        this.addressLatitude = addressLatitude;
+    }
+
+    public void setAddressLongitude(Double addressLongitude)
+    {
+        if (addressLongitude != null)
+        {
+            Assert.isTrue(addressLongitude <= 180.0 && addressLongitude >= -180.0, "");
+        }
+        this.addressLongitude = addressLongitude;
+    }
+
     public Event(String eventName)
     {
         this.eventName = eventName;
-        Assert.hasLength(eventName, "eventName can not be empty");
         Assert.notNull(eventName, "eventName must not be null");
+        Assert.hasLength(eventName, "eventName can not be empty");
     }
 }

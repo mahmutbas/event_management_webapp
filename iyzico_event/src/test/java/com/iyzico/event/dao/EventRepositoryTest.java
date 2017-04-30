@@ -31,7 +31,7 @@ public class EventRepositoryTest
     @Test
     public void testPersistNewObject()
     {
-       Event abc= this.entityManager.persist(new Event("JavaDay Frankfurt"));
+        this.entityManager.persist(new Event("JavaDay Frankfurt"));
         Event event = testFindByEventName("JavaDay Frankfurt");
         assertEquals(event.getEventName(), "JavaDay Frankfurt");
         assertNotNull(event.getId());

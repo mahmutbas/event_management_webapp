@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
 import javax.faces.bean.ViewScoped;
 import java.util.List;
 
@@ -17,7 +18,7 @@ import java.util.List;
  */
 
 @Component
-@ViewScoped
+@RequestScoped
 public class SampleController
 {
     @Getter

@@ -1,0 +1,16 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:h="http://java.sun.com/jsf/html"
+                template="#{request.contextPath}/templates/mainTemplate.xhtml">
+    <ui:define name="headerMenu">
+        <ui:include src="#{request.contextPath}/templates/headerTemplate.xhtml"/>
+    </ui:define>
+    <ui:define name="container">
+            <ui:insert name="mainPanel"/>
+    </ui:define>
+    <ui:define name="footer">
+        <ui:include src="#{request.contextPath}/templates/footerTemplate.xhtml"/>
+    </ui:define>
+</ui:composition>

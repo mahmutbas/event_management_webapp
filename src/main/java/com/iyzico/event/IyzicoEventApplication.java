@@ -30,7 +30,7 @@ public class IyzicoEventApplication  implements WebApplicationInitializer
 	public ServletRegistrationBean facesServletRegistraiton()
 	{
 		ServletRegistrationBean registration = new ServletRegistrationBean(new FacesServlet(), new String[]{"*.xhtml"});
-		registration.setName("FacesServlet");
+		registration.setName("FacesServlet")
 		registration.setLoadOnStartup(1);
 		return registration;
 	}

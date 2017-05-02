@@ -1,22 +1,19 @@
 <ui:composition xmlns="http://www.w3.org/1999/xhtml"
                 xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:p="http://primefaces.org/ui"
-                template="/templates/generalTemplate.xhtml">
+                xmlns:p="http://primefaces.org/ui">
 
-    <ui:define name="mainContent">
-        <br/>
+    <section class="section section--main" id="main-section" style="align-content: center">
 
-        <h:outputText value=" #{pfExceptionHandler.message}" style="font-size: 13px;font-weight: bold"/>
-
-        <br/>
-        <br/>
-        <p:outputPanel rendered="#{'Development' eq facesContext.application.projectStage.name()}">
-            <h:outputLabel value="Detail:"/>
-            <br/>
-
-            <h:outputText escape="false" value="#{pfExceptionHandler.formattedStackTrace}"/>
-        </p:outputPanel>
-    </ui:define>
+        <div class="wrapper">
+            <header class="header  header--large">
+                <h1 class="title">Ahhhhhhhhhhh! There are wrong somethings.</h1>
+                <h2 class="strapline">Not to worry. Sit there and listen to a goat scream like a human.</h2>
+            </header>
+            <div class="content  fit-vid  vid">
+                <iframe src="http://www.youtube.com/embed/SIaFtAKnqBU?vq=hd720&amp;rel=0&amp;showinfo=0&amp;controls=0&amp;iv_load_policy=3&amp;loop=1&amp;playlist=SIaFtAKnqBU&amp;modestbranding=1&amp;autoplay=1" width="560" height="315" frameborder="0" ></iframe>
+            </div>
+        </div><!-- .wrapper -->
+    </section>
 
 </ui:composition>

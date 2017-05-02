@@ -1,7 +1,7 @@
 {
   "name": "iyzicoevent",
   "description": "Iyzico Event Management Web App",
-  "repository": "https://github.com/mahmutbas/iyzico_event_management",
+  "repository": "https://github.com/Runscope/iyzico_event_management",
   "logo": "https://node-js-sample.herokuapp.com/node.svg",
   "keywords": ["springboot", "jsf", "conferance"]
 }

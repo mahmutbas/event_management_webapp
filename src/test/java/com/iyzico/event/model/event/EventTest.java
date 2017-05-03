@@ -9,6 +9,8 @@ import org.junit.runner.RunWith;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDate;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -43,7 +45,7 @@ public class EventTest
     @Test
     public void testEventCreateEventSuccessfuly()
     {
-        event = new Event("JavaDay");
+        event = new Event("JavaDay", LocalDate.now());
         assertEquals("JavaDay", event.getEventName());
         assertNotNull(event.getInternalId());
         assertEquals(event.getInternalId().length(), 36);

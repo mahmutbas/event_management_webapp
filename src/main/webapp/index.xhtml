@@ -13,10 +13,10 @@
         <ui:include src="#{request.contextPath}/event/eventPage.xhtml">
         </ui:include>
         <ui:include src="#{request.contextPath}/speakers/speakersPage.xhtml">
-               <ui:param name="event" value="#{eventController.event}" />
+            <ui:param name="event" value="#{eventController.event}"/>
         </ui:include>
         <ui:include src="#{request.contextPath}/host/hostPage.xhtml">
-            <!--   <ui:param name="contactHistoryData" value="#{contactHistoryController.contactHistoryList}" />-->
+            <ui:param name="event" value="#{eventController.event}"/>
         </ui:include>
         <ui:include src="#{request.contextPath}/ticket/purchasePage.xhtml">
             <!--   <ui:param name="contactHistoryData" value="#{contactHistoryController.contactHistoryList}" />-->

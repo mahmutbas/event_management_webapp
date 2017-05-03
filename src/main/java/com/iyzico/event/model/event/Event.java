@@ -1,16 +1,18 @@
 package com.iyzico.event.model.event;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.iyzico.event.model.AbstractEntity;
 import lombok.Data;
+import org.apache.commons.lang.StringUtils;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.Where;
-import org.springframework.util.Assert;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
-import java.util.Date;
+import java.time.LocalDate;
+
+import static com.google.common.base.Preconditions.checkArgument;
 
 /**
  * Created by TCMBAS on 26/04/2017.
@@ -23,13 +25,17 @@ import java.util.Date;
 public class Event extends AbstractEntity
 {
     private String eventName;
-    @Temporal(TemporalType.DATE)
-    private Date eventDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd")
+    @Column(nullable = false)
+    private LocalDate eventDate;
     private String addressText;
     private Double addressLatitude;
     private Double addressLongitude;
     private Integer days;
-    private Integer trackCount;
+    @Column(length = 500)
+    private String aboutEvent;
+    @Column(length = 500)
+    private String aboutHost;
 
     public Event()
     {
@@ -39,7 +45,7 @@ public class Event extends AbstractEntity
     {
         if (addressLatitude != null)
         {
-            Assert.isTrue(addressLatitude <= 90.0 && addressLatitude >= -90.0, "");
+            checkArgument(addressLatitude <= 90.0 && addressLatitude >= -90.0);
         }
         this.addressLatitude = addressLatitude;
     }
@@ -48,7 +54,7 @@ public class Event extends AbstractEntity
     {
         if (addressLongitude != null)
         {
-            Assert.isTrue(addressLongitude <= 180.0 && addressLongitude >= -180.0, "");
+            checkArgument(addressLongitude <= 180.0 && addressLongitude >= -180.0);
         }
         this.addressLongitude = addressLongitude;
     }
@@ -56,7 +62,13 @@ public class Event extends AbstractEntity
     public Event(String eventName)
     {
         this.eventName = eventName;
-        Assert.notNull(eventName, "eventName must not be null");
-        Assert.hasLength(eventName, "eventName can not be empty");
+        checkArgument(StringUtils.isNotEmpty(eventName), "eventName can not be empty");
+    }
+
+    public Event(String eventName, LocalDate eventDate)
+    {
+        this.eventName = eventName;
+        this.eventDate = eventDate;
+        checkArgument(StringUtils.isNotEmpty(eventName), "eventName can not be empty");
     }
 }

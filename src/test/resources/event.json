@@ -8,5 +8,6 @@
   "addressLatitude": null,
   "addressLongitude": null,
   "days": null,
-  "trackCount": null
+  "aboutEvent": null,
+  "aboutHost": null
 }

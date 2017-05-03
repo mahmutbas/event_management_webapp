@@ -9,6 +9,7 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -31,7 +32,7 @@ public class EventRepositoryTest
     @Test
     public void testPersistNewObject()
     {
-        this.entityManager.persist(new Event("JavaDay Frankfurt"));
+        this.entityManager.persist(new Event("JavaDay Frankfurt", LocalDate.now()));
         Event event = testFindByEventName("JavaDay Frankfurt");
         assertEquals(event.getEventName(), "JavaDay Frankfurt");
         assertNotNull(event.getId());

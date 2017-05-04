@@ -23,6 +23,10 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style type="text/css">
+        .ui-growl {
+            z-index: 999999 !important;
+        }</style>
 </h:head>
 
 <body id="page-top" class="index">
@@ -36,7 +40,7 @@
         resizable="false">
     <img alt="loading" src="#{request.contextPath}/style/images/loading.gif" style="height: auto; width:auto;"/>
 </p:dialog>
-<p:growl id="growl" sticky="false" life="10000" showDetail="false" autoUpdate="true" globalOnly="false"/>
+<p:growl id="growl" sticky="false" life="5000" showDetail="true" autoUpdate="true" globalOnly="false"/>
 <div id="skipnav"><a href="#maincontent">Skip to main content</a></div>
 <ui:insert name="headerMenu"/>
 <ui:insert name="container"/>

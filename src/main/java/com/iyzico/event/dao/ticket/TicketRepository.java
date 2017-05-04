@@ -18,8 +18,8 @@ public interface TicketRepository extends JpaRepository<Ticket, String>
     List<Ticket> findAll();
 
     @Query(value = "select ticket from Ticket ticket where ticket.event.id=:eventId and :currentDate between ticket.startDate and ticket.endDate")
-    public Ticket findTicketByEventIdAndDatePeriod(@Param("eventId") String eventId, @Param("currentDate") LocalDate currentDate);
+    Ticket findTicketByEventIdAndDatePeriod(@Param("eventId") String eventId, @Param("currentDate") LocalDate currentDate);
 
     @Query(value = "select ticket from Ticket ticket where ticket.event.id=:eventId")
-    public List<Ticket> findAllTicketByEventId(@Param("eventId") String eventId);
+    List<Ticket> findAllTicketByEventId(@Param("eventId") String eventId);
 }

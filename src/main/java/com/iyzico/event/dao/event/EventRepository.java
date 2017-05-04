@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
  * Created by TCMBAS on 27/04/2017.
  */
 @Repository("eventRepository")
-public interface EventRepository  extends JpaRepository<Event, String>
+public interface EventRepository extends JpaRepository<Event, String>
 {
-    public Event findByEventName(String eventName);
+    Event findByEventName(String eventName);
 }

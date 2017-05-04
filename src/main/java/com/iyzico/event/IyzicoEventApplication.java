@@ -76,7 +76,6 @@ public class IyzicoEventApplication  implements WebApplicationInitializer
 				errorPage.setErrorCode(500);
 				errorPage.setExceptionType("java.lang.Throwable");
 				errorPage.setLocation("/error/errorOccured.xhtml");
-				//TODO error pages not working
 				context.addErrorPage(errorPage);
 			}
 		};

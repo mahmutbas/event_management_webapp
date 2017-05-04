@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.RequestScoped;
 import java.io.IOException;
 import java.time.ZoneId;
@@ -47,6 +48,8 @@ public class EventController extends BaseController
         //todo type="localdate" will be in xhtml page with jsf 2.3
         eventDate = Date.from(event.getEventDate().atStartOfDay().atZone(ZoneId.systemDefault()).toInstant());
         eventName = null;
+      //  jsfMessageUtil.addMessage(FacesMessage.SEVERITY_WARN,"Lütfen işlem yapmak için bir ilişki seçiniz","");
+        jsfMessageUtil.addMessage(FacesMessage.SEVERITY_ERROR,"Hatalı giriş","");
         if (event == null)
         {
             FacesUtils.resetBean("eventController");

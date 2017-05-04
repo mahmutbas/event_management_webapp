@@ -15,5 +15,5 @@ public interface SpeakerRest
 {
     //http://localhost:8080/api/speaker/byeventid
     @RequestMapping(path = "/speaker/byeventid", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Speaker> findAllSpeakersByEventId(String eventId);
+    List<Speaker> findAllSpeakersByEventId(String eventId);
 }

@@ -4,6 +4,7 @@ import com.iyzico.event.model.dto.CheckoutResultDTO;
 import com.iyzico.event.model.event.Event;
 import com.iyzico.event.model.ticket.Ticket;
 
+import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
@@ -16,5 +17,8 @@ public interface TicketService
 
     List<Ticket> findAllTicketByEventId(String eventId);
 
-    CheckoutResultDTO register(Event event, Ticket ticket, String cardNumber, String discountCode, LocalDate registrationDate);
+    CheckoutResultDTO checkForValidCard(String cardNumber);
+
+    BigDecimal adjustFinalPrice(Event event, String discountCode, LocalDate registrationDate) throws Exception;
+
 }

@@ -19,7 +19,7 @@
             <ui:param name="event" value="#{eventController.event}"/>
         </ui:include>
         <ui:include src="#{request.contextPath}/ticket/purchasePage.xhtml">
-            <!--   <ui:param name="contactHistoryData" value="#{contactHistoryController.contactHistoryList}" />-->
+            <ui:param name="event" value="#{eventController.event}"/>
         </ui:include>
     </ui:define>
 </ui:composition>

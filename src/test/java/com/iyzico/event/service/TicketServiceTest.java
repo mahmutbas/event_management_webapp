@@ -60,4 +60,6 @@ public class TicketServiceTest
         assertThat(tickets.iterator().next().getEndDate()).isEqualTo(LocalDate.of(2018, Month.JULY, 9));
     }
 
+    //todo diğer methodların testleri önemli
+
 }

@@ -2,10 +2,12 @@ package com.iyzico.event.model.ticket;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.google.common.collect.Sets;
 import com.iyzico.event.model.AbstractEntity;
 import com.iyzico.event.model.event.Event;
 import com.iyzico.event.model.ticket.enums.PeriodType;
 import lombok.Data;
+import lombok.ToString;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.Where;
 
@@ -17,9 +19,11 @@ import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.Set;
 
 import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
@@ -30,6 +34,7 @@ import static com.google.common.base.Preconditions.checkNotNull;
 @Entity
 @Data
 @Table(name = "T_TICKET")
+@ToString(callSuper = true, of = "")
 @DynamicUpdate
 @Where(clause = "DELETED = '0'")
 public class Ticket extends AbstractEntity

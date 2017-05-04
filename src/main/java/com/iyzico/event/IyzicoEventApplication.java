@@ -1,5 +1,6 @@
 package com.iyzico.event;
 
+import com.iyzico.event.configuration.IyzipayApiProperties;
 import org.apache.catalina.Context;
 import org.apache.tomcat.util.descriptor.web.ErrorPage;
 import org.springframework.boot.SpringApplication;
@@ -7,10 +8,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.embedded.EmbeddedServletContainerFactory;
 import org.springframework.boot.context.embedded.tomcat.TomcatContextCustomizer;
 import org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainerFactory;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.boot.web.servlet.ServletContextInitializer;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.servlet.DispatcherServlet;
 
@@ -20,6 +21,7 @@ import javax.servlet.ServletRegistration;
 
 
 @SpringBootApplication
+@EnableConfigurationProperties(IyzipayApiProperties.class)
 public class IyzicoEventApplication  implements WebApplicationInitializer
 {
 	public static void main(String[] args) {

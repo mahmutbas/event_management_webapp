@@ -16,9 +16,13 @@ import java.util.List;
 @RestController
 public class EventRestControllerImpl extends BaseApiController implements EventRest
 {
+    private final EventService eventService;
+
     @Autowired
-    @Qualifier("eventService")
-    public EventService eventService;
+    public EventRestControllerImpl(@Qualifier("eventService") EventService eventService)
+    {
+        this.eventService = eventService;
+    }
 
     @Override
     public List<Event> findAllEvents()

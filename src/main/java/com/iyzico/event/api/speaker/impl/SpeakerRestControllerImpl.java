@@ -16,9 +16,13 @@ import java.util.List;
 @RestController
 public class SpeakerRestControllerImpl extends BaseApiController implements SpeakerRest
 {
+    private final SpeakerService speakerService;
+
     @Autowired
-    @Qualifier("speakerService")
-    public SpeakerService speakerService;
+    public SpeakerRestControllerImpl(@Qualifier("speakerService") SpeakerService speakerService)
+    {
+        this.speakerService = speakerService;
+    }
 
     @Override
     public List<Speaker> findAllSpeakersByEventId(String eventId)

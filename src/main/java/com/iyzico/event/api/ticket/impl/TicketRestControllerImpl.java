@@ -16,9 +16,13 @@ import java.util.List;
 @RestController
 public class TicketRestControllerImpl extends BaseApiController implements TicketRest
 {
+    private final TicketService ticketService;
+
     @Autowired
-    @Qualifier("ticketService")
-    public TicketService ticketService;
+    public TicketRestControllerImpl(@Qualifier("ticketService") TicketService ticketService)
+    {
+        this.ticketService = ticketService;
+    }
 
     @Override
     public List<Ticket> findAllTicketByEventId(String eventId)

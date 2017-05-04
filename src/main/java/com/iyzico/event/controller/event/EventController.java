@@ -26,10 +26,7 @@ public class EventController extends BaseController
 {
     public static final String DEFAULT_EVENT_NAME = "JavaDay";
 
-    @Setter
-    @Autowired
-    @Qualifier("eventService")
-    private EventService eventService;
+    private final EventService eventService;
 
     @Getter
     private Event event;
@@ -41,6 +38,12 @@ public class EventController extends BaseController
     @Setter
     @Getter
     private Date eventDate;
+
+    @Autowired
+    public EventController(@Qualifier("eventService") EventService eventService)
+    {
+        this.eventService = eventService;
+    }
 
     public void init() throws IOException
     {

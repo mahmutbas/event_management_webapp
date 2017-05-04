@@ -1,7 +1,10 @@
 package com.iyzico.event.service.ticket;
 
+import com.iyzico.event.model.dto.CheckoutResultDTO;
+import com.iyzico.event.model.event.Event;
 import com.iyzico.event.model.ticket.Ticket;
 
+import java.time.LocalDate;
 import java.util.List;
 
 /**
@@ -12,4 +15,6 @@ public interface TicketService
     List<Ticket> findAll();
 
     List<Ticket> findAllTicketByEventId(String eventId);
+
+    CheckoutResultDTO register(Event event, Ticket ticket, String cardNumber, String discountCode, LocalDate registrationDate);
 }

@@ -10,5 +10,6 @@ import java.util.List;
 public interface TicketService
 {
     List<Ticket> findAll();
-    public List<Ticket> findAllTicketByEventId(String eventId);
+
+    List<Ticket> findAllTicketByEventId(String eventId);
 }

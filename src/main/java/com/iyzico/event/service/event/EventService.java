@@ -1,7 +1,6 @@
 package com.iyzico.event.service.event;
 
 import com.iyzico.event.model.event.Event;
-import com.iyzico.event.service.BaseService;
 
 import java.util.List;
 
@@ -10,7 +9,7 @@ import java.util.List;
  */
 public interface EventService
 {
-    public List<Event> findAllEvents();
+    List<Event> findAllEvents();
 
-    public Event findByEventName(String eventName);
+    Event findByEventName(String eventName);
 }

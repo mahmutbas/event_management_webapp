@@ -14,9 +14,9 @@ import java.util.List;
 @Repository("speakerRepository")
 public interface SpeakerRepository extends JpaRepository<Speaker, String>
 {
-    public Speaker findByFullName(String fullName);
+    Speaker findByFullName(String fullName);
 
     @Query(value = "select speaker from Speaker speaker where speaker.event.id=:eventId")
-    public List<Speaker> findAllSpeakersByEventId(@Param("eventId") String eventId);
+    List<Speaker> findAllSpeakersByEventId(@Param("eventId") String eventId);
 
 }

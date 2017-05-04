@@ -15,5 +15,5 @@ public interface TicketRest
 {
     //http://localhost:8080/api/ticket/byeventid?eventId=6D499BD5-2825-4A10-976E-8850D23CA36C
     @RequestMapping(path = "/ticket/byeventid", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Ticket> findAllTicketByEventId(String eventId);
+    List<Ticket> findAllTicketByEventId(String eventId);
 }

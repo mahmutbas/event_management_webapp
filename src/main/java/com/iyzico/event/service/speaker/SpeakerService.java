@@ -9,9 +9,9 @@ import java.util.List;
  */
 public interface SpeakerService
 {
-    public List<Speaker> findAllSpeakers();
+    List<Speaker> findAllSpeakers();
 
-    public Speaker findByFullName(String fullName);
+    Speaker findByFullName(String fullName);
 
-    public List<Speaker> findAllSpeakersByEventId(String eventId);
+    List<Speaker> findAllSpeakersByEventId(String eventId);
 }

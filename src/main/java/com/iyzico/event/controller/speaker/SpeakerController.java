@@ -1,6 +1,7 @@
 package com.iyzico.event.controller.speaker;
 
 import com.iyzico.event.controller.BaseController;
+import com.iyzico.event.model.event.Event;
 import com.iyzico.event.service.event.EventService;
 import com.iyzico.event.service.speaker.SpeakerService;
 import org.springframework.beans.factory.annotation.Autowired;

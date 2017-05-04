@@ -1,16 +1,23 @@
 package com.iyzico.event.model.event;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.google.common.collect.Sets;
 import com.iyzico.event.model.AbstractEntity;
+import com.iyzico.event.model.ticket.SpecialDiscount;
 import lombok.Data;
+import lombok.ToString;
 import org.apache.commons.lang.StringUtils;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.Where;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.time.LocalDate;
+import java.util.Set;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
@@ -20,6 +27,7 @@ import static com.google.common.base.Preconditions.checkArgument;
 @Entity
 @Data
 @Table(name = "T_EVENT")
+@ToString(callSuper = true, of = "")
 @DynamicUpdate
 @Where(clause = "DELETED = '0'")
 public class Event extends AbstractEntity
@@ -31,11 +39,14 @@ public class Event extends AbstractEntity
     private String addressText;
     private Double addressLatitude;
     private Double addressLongitude;
-    private Integer days;
     @Column(length = 500)
-    private String aboutEvent;
+    private String aboutEvent; //information about event
     @Column(length = 500)
-    private String aboutHost;
+    private String aboutHost; //information about organizator
+
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "event", orphanRemoval = true)
+    @Where(clause = "DELETED = '0'")
+    private Set<SpecialDiscount> specialDiscounts = Sets.newHashSet();
 
     public Event()
     {

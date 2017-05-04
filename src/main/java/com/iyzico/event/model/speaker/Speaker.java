@@ -3,6 +3,7 @@ package com.iyzico.event.model.speaker;
 import com.iyzico.event.model.AbstractEntity;
 import com.iyzico.event.model.event.Event;
 import lombok.Data;
+import lombok.ToString;
 import org.apache.commons.lang.StringUtils;
 import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.Where;
@@ -21,6 +22,7 @@ import javax.persistence.Table;
 @Entity
 @Data
 @Table(name = "T_SPEAKER")
+@ToString(callSuper = true, of = "")
 @DynamicUpdate
 @Where(clause = "DELETED = '0'")
 public class Speaker extends AbstractEntity

@@ -1,10 +1,9 @@
 package com.iyzico.event.model.dto;
 
 import com.iyzico.event.model.dto.enums.Result;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import java.math.BigDecimal;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 /**
  * Created by TCMBAS on 04/05/2017.
@@ -17,7 +16,7 @@ public class CheckoutResultDTO
 
     public CheckoutResultDTO(Result result, String resultDescription)
     {
-        this.result = result;
+        this.result = checkNotNull(result);
         this.resultDescription = resultDescription;
     }
 }

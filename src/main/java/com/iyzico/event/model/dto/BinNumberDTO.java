@@ -10,6 +10,6 @@ import lombok.Data;
 @AllArgsConstructor
 public class BinNumberDTO
 {
-    private Long backCode;
+    private Long bankCode;
     private String cardType;
 }

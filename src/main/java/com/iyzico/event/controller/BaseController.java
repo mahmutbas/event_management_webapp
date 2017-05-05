@@ -16,7 +16,6 @@ public abstract class BaseController implements Serializable
 {
     protected final Logger logger = LoggerFactory.getLogger(this.getClass());
 
-    @Setter
     @Qualifier("jsfMessageUtil")
     @Autowired
     protected JSFMessageUtil jsfMessageUtil;

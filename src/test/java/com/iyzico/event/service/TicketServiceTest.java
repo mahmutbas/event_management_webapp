@@ -30,6 +30,7 @@ import java.util.List;
 
 import static com.iyzico.event.service.ticket.enums.BankCard.GARANTI_BANKASI;
 import static com.iyzico.event.service.ticket.enums.BankCard.HALK_BANK;
+import static com.iyzico.event.service.ticket.enums.BankCard.HSBC;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 
@@ -64,6 +65,7 @@ public class TicketServiceTest
         given(this.inquireBinResultWebServiceMock.retrieveBinNumber("123456")).willReturn(new BinNumberDTO(72L, "DEBIT_CARD"));
         given(this.inquireBinResultWebServiceMock.retrieveBinNumber("123457")).willReturn(new BinNumberDTO(HALK_BANK.getBankCode(), "DEBIT_CARD"));
         given(this.inquireBinResultWebServiceMock.retrieveBinNumber("123458")).willReturn(new BinNumberDTO(GARANTI_BANKASI.getBankCode(), "CREDIT_CARD"));
+        given(this.inquireBinResultWebServiceMock.retrieveBinNumber("123459")).willReturn(new BinNumberDTO(HSBC.getBankCode(), "CREDIT_CARD"));
     }
 
     @Test
@@ -107,12 +109,29 @@ public class TicketServiceTest
     }
 
     @Test
-    public void testCheckForValidCardCreditCardBankInNotList()
+    public void testCheckForValidCardCreditCardBankInList()
     {
         checkoutResult = ticketService.checkForValidCard("123458");
         assertThat(checkoutResult.getResult() == Result.SUCCESS);
         assertThat(checkoutResult.getResultDescription().equals("Success"));
     }
+
+    @Test
+    public void testCheckForValidCardCreditCardBankNoInList()
+    {
+        checkoutResult = ticketService.checkForValidCard("123459");
+        assertThat(checkoutResult.getResult() == Result.FAILURE);
+        assertThat(checkoutResult.getResultDescription().equals("Card can not use!"));
+    }
+
+    @Test
+    public void testCheckForValidCardCardNumberIsNull()
+    {
+        checkoutResult = ticketService.checkForValidCard(null);
+        assertThat(checkoutResult.getResult() == Result.FAILURE);
+        assertThat(checkoutResult.getResultDescription().equals("Card number invalid!"));
+    }
+
 
     @Test
     public void adjustFinalPriceTicketIsNull() throws Exception

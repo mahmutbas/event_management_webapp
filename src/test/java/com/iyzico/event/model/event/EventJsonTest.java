@@ -34,7 +34,7 @@ public class EventJsonTest
     @Test
     public void deserializeJson() throws Exception
     {
-        String content = "{\"id\":null,\"createTime\":null,\"deleted\":\"0\",\"eventName\":\"JavaDay Frankfurt\",\"eventDate\":null,\"addressText\":null,\"addressLatitude\":null,\"addressLongitude\":null,\"days\":null,\"aboutEvent\":null,\"aboutHost\":null}";
+        String content = "{\"id\":null,\"createTime\":null,\"deleted\":\"0\",\"eventName\":\"JavaDay Frankfurt\",\"eventDate\":null,\"addressText\":null,\"addressLatitude\":null,\"addressLongitude\":null,\"aboutEvent\":null,\"aboutHost\":null}";
         assertThat(this.json.parse(content)).isEqualTo(new Event("JavaDay Frankfurt"));
         assertThat(this.json.parseObject(content).getEventName()).isEqualTo("JavaDay Frankfurt");
     }

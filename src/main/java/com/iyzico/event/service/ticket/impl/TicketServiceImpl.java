@@ -36,7 +36,7 @@ import static com.iyzico.event.service.ticket.enums.BankCard.IS_BANKASI;
 public class TicketServiceImpl extends BaseService implements TicketService
 {
     private static final String DEBIT_CARD = "DEBIT_CARD";
-    public static final List<BankCard> VALID_BANKS_FOR_SALE = ImmutableList.of(GARANTI_BANKASI, IS_BANKASI, AKBANK, FINANSBANK);
+    private static final List<BankCard> VALID_BANKS_FOR_SALE = ImmutableList.of(GARANTI_BANKASI, IS_BANKASI, AKBANK, FINANSBANK);
     private final TicketRepository ticketRepository;
     private final InquireBinResultWebService inquireBinResultWebService;
     private final SpecialDiscountRepository specialDiscountRepository;
@@ -74,13 +74,13 @@ public class TicketServiceImpl extends BaseService implements TicketService
                 logger.info(Result.FAILURE.toString() + " {} Card number invalid!", cardNumber);
                 return new CheckoutResultDTO(Result.FAILURE, "Card number invalid!");
             }
-            if (DEBIT_CARD.equalsIgnoreCase(binNumberDTO.getCardType()) && binNumberDTO.getBackCode() != HALK_BANK.getBankCode())
+            if (DEBIT_CARD.equalsIgnoreCase(binNumberDTO.getCardType()) && binNumberDTO.getBankCode() != HALK_BANK.getBankCode())
             {
                 logger.info(Result.FAILURE.toString() + " {} Can not use debit card!", cardNumber);
                 return new CheckoutResultDTO(Result.FAILURE, "Can not use debit card!");
             }
             if (!DEBIT_CARD.equalsIgnoreCase(binNumberDTO.getCardType()) &&
-                    !VALID_BANKS_FOR_SALE.stream().filter(bankCard -> bankCard.getBankCode() == binNumberDTO.getBackCode()).iterator().hasNext())
+                    !VALID_BANKS_FOR_SALE.stream().filter(bankCard -> bankCard.getBankCode() == binNumberDTO.getBankCode()).iterator().hasNext())
             {
                 logger.info(Result.FAILURE.toString() + " {} Card can not use!", cardNumber);
                 return new CheckoutResultDTO(Result.FAILURE, "Card can not use!");
@@ -90,7 +90,7 @@ public class TicketServiceImpl extends BaseService implements TicketService
         {
             return new CheckoutResultDTO(Result.FAILURE, e.getMessage());
         }
-        return new CheckoutResultDTO(Result.SUCCESS, "Başarılı");
+        return new CheckoutResultDTO(Result.SUCCESS, "Success");
     }
 
     @Override

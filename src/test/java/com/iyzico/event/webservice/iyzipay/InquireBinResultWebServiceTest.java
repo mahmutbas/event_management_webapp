@@ -29,7 +29,7 @@ public class InquireBinResultWebServiceTest
     {
         BinNumberDTO binNumberDTO = inquireBinResultWebService.retrieveBinNumber("5400360000000003");
         Assert.assertNotNull(binNumberDTO);
-        Assert.assertEquals(binNumberDTO.getBackCode(), Long.valueOf("62"));
+        Assert.assertEquals(binNumberDTO.getBankCode(), Long.valueOf("62"));
         Assert.assertEquals(binNumberDTO.getCardType(), "CREDIT_CARD");
     }
 
@@ -38,7 +38,7 @@ public class InquireBinResultWebServiceTest
     {
         BinNumberDTO binNumberDTO = inquireBinResultWebService.retrieveBinNumber("5526080000000006");
         Assert.assertNotNull(binNumberDTO);
-        Assert.assertEquals(binNumberDTO.getBackCode(), Long.valueOf("46"));
+        Assert.assertEquals(binNumberDTO.getBankCode(), Long.valueOf("46"));
         Assert.assertEquals(binNumberDTO.getCardType(), "CREDIT_CARD");
     }
 

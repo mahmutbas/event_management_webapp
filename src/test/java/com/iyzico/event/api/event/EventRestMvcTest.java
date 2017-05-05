@@ -39,6 +39,6 @@ public class EventRestMvcTest
         given(this.eventService.findAllEvents()).willReturn(Lists.newArrayList(new Event("JavaDay")));
         this.mvc.perform(get("/api/event/all").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
-                .andExpect(content().string("[{\"id\":null,\"createTime\":null,\"deleted\":\"0\",\"eventName\":\"JavaDay\",\"eventDate\":null,\"addressText\":null,\"addressLatitude\":null,\"addressLongitude\":null,\"days\":null,\"aboutEvent\":null,\"aboutHost\":null}]"));
+                .andExpect(content().string("[{\"id\":null,\"createTime\":null,\"deleted\":\"0\",\"eventName\":\"JavaDay\",\"eventDate\":null,\"addressText\":null,\"addressLatitude\":null,\"addressLongitude\":null,\"aboutEvent\":null,\"aboutHost\":null,\"specialDiscounts\":[]}]"));
     }
 }
